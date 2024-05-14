@@ -12,6 +12,18 @@ db = client.HungryHub
 
 def lista_platos(request):
     platos = db["Platos"].find()
+
+    if request.method=="POST":
+        
+        pedidos = db["Pedidos"].find()
+        
+
+        if "boton" in request.POST:
+
+            id= request.POST["boton"]
+            pedidos = db["Pedidos"]
+            pedidos.insert_one({"id_plato": id})
+
     return render(request, 'lista_platos.html', {'platos': platos})
 
 """ 
