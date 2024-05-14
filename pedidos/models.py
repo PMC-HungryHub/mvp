@@ -7,6 +7,6 @@ class Pedido(models.Model):
         ENTREGADO = 'ENTREGADO', 'Entregado'
         PAGADO = 'PAGADO', 'Pagado'
 
-    id = models.IntegerField(primary_key=True)
+    id_plato = models.IntegerField(primary_key=True)
     estado = models.CharField(max_length=50, choices=Estado.choices)
     total = models.IntegerField()

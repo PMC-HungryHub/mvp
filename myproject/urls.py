@@ -17,10 +17,12 @@ from django.contrib import admin
 from django.urls import path
 from django.views.decorators.csrf import csrf_exempt  # Importa csrf_exempt
 from myapp.views import lista_platos
+from pedidos.views import cocina
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('platos/', csrf_exempt(lista_platos), name='lista_platos'),  # Aplica csrf_exempt a la vista
+    path ('cocina/', csrf_exempt(cocina) )
 ]
 
 
