@@ -1,22 +1,146 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lista de Platos</title>
+    <title>HungryHub</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f9fa;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+        .header {
+            background-color: #ff6f61;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+        }
+        .container {
+            padding: 20px;
+        }
+        .section-title {
+            font-size: 1.5em;
+            margin-top: 20px;
+            color: #ff6f61;
+        }
+        .dish, .drink {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            background-color: #fff;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            flex-wrap: wrap;
+        }
+        .dish img, .drink img {
+            max-width: 150px;
+            border-radius: 8px;
+        }
+        .dish-info, .drink-info {
+            flex-grow: 1;
+            margin-right: 20px;
+            margin-bottom: 15px;
+        }
+        .dish-info h3, .drink-info h3 {
+            margin: 0;
+            font-size: 1.2em;
+        }
+        .price {
+            color: #28a745;
+            font-weight: bold;
+        }
+        .add-to-cart {
+            background-color: #ff6f61;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            font-size: 0.9em;
+            cursor: pointer;
+            border-radius: 8px;
+            margin-top: 10px;
+        }
+        .cart-button {
+            background-color: #ff6f61;
+            color: #fff;
+            border: none;
+            padding: 15px 30px;
+            font-size: 1em;
+            cursor: pointer;
+            display: block;
+            width: 100%;
+            text-align: center;
+            margin-top: 30px;
+            border-radius: 8px;
+        }
+    </style>
 </head>
 <body>
-    <h1>Lista de Platos</h1>
-    <ul>
-        {% for plato in platos %}
-            <li>
-                {{ plato.nombre }} - ${{ plato.precio }}
-               
-                    <button type="submit">Pedir</button>
-             
-            </li>
-        {% endfor %}
-    </ul>
+    <div class="header">
+        <h1>HungryHub</h1>
+    </div>
+    <div class="container">
+        <h2>¡Bienvenido a HungryHub!</h2>
+        <div>
+            <img src="ruta/de/tu/imagen.jpg" alt="Imagen de bienvenida" style="width: 100%; max-width: 600px; margin: 20px 0;">
+        </div>
+        
+        <h2 class="section-title">Platos Principales</h2>
+        <div class="dish">
+            <div class="dish-info">
+                <h3>Nombre del Plato</h3>
+                <p>Descripción breve del plato.</p>
+                <p class="price">$12.99</p>
+            </div>
+            <div>
+                <img src="ruta/de/tu/imagen.jpg" alt="Imagen del Plato">
+                <button class="add-to-cart">Añadir al carrito</button>
+            </div>
+        </div>
+        
+        <div class="dish">
+            <div class="dish-info">
+                <h3>Otro Plato</h3>
+                <p>Descripción breve del plato.</p>
+                <p class="price">$15.99</p>
+            </div>
+            <div>
+                <img src="ruta/de/tu/imagen.jpg" alt="Imagen del Plato">
+                <button class="add-to-cart">Añadir al carrito</button>
+            </div>
+        </div>
+
+        <h2 class="section-title">Bebidas</h2>
+        <div class="drink">
+            <div class="drink-info">
+                <h3>Nombre de la Bebida</h3>
+                <p>Descripción breve de la bebida.</p>
+                <p class="price">$3.99</p>
+            </div>
+            <div>
+                <img src="ruta/de/tu/imagen.jpg" alt="Imagen de la Bebida">
+                <button class="add-to-cart">Añadir al carrito</button>
+            </div>
+        </div>
+
+        <div class="drink">
+            <div class="drink-info">
+                <h3>Otra Bebida</h3>
+                <p>Descripción breve de la bebida.</p>
+                <p class="price">$4.99</p>
+            </div>
+            <div>
+                <img src="ruta/de/tu/imagen.jpg" alt="Imagen de la Bebida">
+                <button class="add-to-cart">Añadir al carrito</button>
+            </div>
+        </div>
+
+        <button class="cart-button">Ir al Carrito</button>
+    </div>
 </body>
 </html>
 
