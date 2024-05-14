@@ -8,6 +8,8 @@ client = pymongo.MongoClient ('mongodb://hungryhub84:fFgkg89qCuK1KJ3a@ac-t4pykdt
 db = client.HungryHub
 platos = db["Platos"].find()
 
+print(platos)
+
 
 def lista_platos(request):
 
