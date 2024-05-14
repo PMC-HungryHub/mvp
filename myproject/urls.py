@@ -15,12 +15,12 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from django.views.decorators.csrf import csrf_exempt  # Importa csrf_exempt
 from myapp.views import lista_platos
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('platos/', lista_platos, name='lista_platos'),
-
+    path('platos/', csrf_exempt(lista_platos), name='lista_platos'),  # Aplica csrf_exempt a la vista
 ]
 
 
