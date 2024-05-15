@@ -8,5 +8,5 @@ class Pedido(models.Model):
         PAGADO = 'PAGADO', 'Pagado'
 
     id_plato = models.IntegerField(primary_key=True)
-    estado = models.CharField(max_length=50, choices=Estado.choices)
-    total = models.IntegerField()
+    estado = models.CharField(max_length=50, choices=Estado.choices, default=Estado.ORDENADO)
+    total = models.IntegerField(null=True, blank=True)
