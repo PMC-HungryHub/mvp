@@ -15,8 +15,9 @@
         .header {
             background-color: #ff6f61;
             color: #fff;
-            padding: 20px;
+            padding: 0%;
             text-align: center;
+            height: 4%;
         }
         .container {
             padding: 20px;
@@ -81,32 +82,30 @@
 </head>
 <body>
     <div class="header">
-        <h1>HungryHub</h1>
+        <h1 style="display: inline-block;">HungryHub</h1>
+        <img src="https://cdn-icons-png.flaticon.com/512/5787/5787016.png" alt="Logito pro" width=8% height=8%>
+
     </div>
     <div class="container">
         <h2 style="text-align: center;">¡Bienvenido a HungryHub!</h2>
-        <div>
-            <img src="ruta/de/tu/imagen.jpg" alt="Imagen de bienvenida" style="width: 100%; max-width: 600px; margin: 20px 0;">
-        </div>
         
         <h2 class="section-title">Platos Principales</h2>
         {% for plato in platos %}
             <div class="dish">
                 <div class="dish-info">
                     <h3>{{ plato.nombre }}</h3>
-                    <p>Descripción breve del plato.</p>
-                    <p class="price">{{ plato.precio }}</p>
-                    <p>{{c}}</p>
+                    <p><b>Descripción:</b> {{plato.descripcion}}</p>
+                    <p> <b>Precio: </b> ${{ plato.precio }}</p>
                 </div>
                 <div>
                     <img src={{ plato.imagen }} alt="Imagen del Plato">
                     <form method="post">
-                    <button class="add-to-cart" type="submit" name="boton" value={{plato.id2}}>Añadir al carrito</button>
+                    <button class="add-to-cart" type="submit" name="boton" value={{plato.nombre}}>Pedir</button>
                     </form>
                 </div>
             </div>
         {% endfor %}
-        <button class="cart-button">Ir al Carrito</button>
+     
     </div>
 </body>
 </html>

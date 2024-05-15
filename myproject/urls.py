@@ -18,11 +18,14 @@ from django.urls import path
 from django.views.decorators.csrf import csrf_exempt  # Importa csrf_exempt
 from myapp.views import lista_platos
 from pedidos.views import cocina
+from platosPedidos.views import carrito
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('platos/', csrf_exempt(lista_platos), name='lista_platos'),  # Aplica csrf_exempt a la vista
-    path ('cocina/', csrf_exempt(cocina) )
+    path ('cocina/', csrf_exempt(cocina) ),
+    path('carrito/', csrf_exempt(carrito)),
 ]
 
 
