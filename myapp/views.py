@@ -24,9 +24,9 @@ def lista_platos(request):
 
         if "boton" in request.POST:
 
-            id2= request.POST["boton"]
+            nombre= request.POST["boton"]
             pedidos = db["Pedidos"]
-            pedidos.insert_one({"id_plato": id2})
+            pedidos.insert_one({"nombre": nombre})
 
    return render(request, 'lista_platos.html', {'platos': platos})
 
