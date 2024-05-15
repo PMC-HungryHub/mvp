@@ -10,3 +10,6 @@ class Restaurante(models.Model):
     mesas = models.ArrayField(model_container=Mesa, null=True, blank=True)
     pedidos = models.ArrayField(model_container=Pedido, null=True, blank=True)
     platos = models.ArrayField(model_container=Plato, null=True, blank=True)
+
+    def __str__(self):
+        return self.nombre

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Carrito de Compras - HungryHub</title>
+    <title>HungryHub</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -15,8 +15,9 @@
         .header {
             background-color: #ff6f61;
             color: #fff;
-            padding: 20px;
+            padding: 0%;
             text-align: center;
+            height: 4%;
         }
         .container {
             padding: 20px;
@@ -26,7 +27,7 @@
             margin-top: 20px;
             color: #ff6f61;
         }
-        .cart-item {
+        .dish, .drink {
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -37,15 +38,16 @@
             border-radius: 8px;
             flex-wrap: wrap;
         }
-        .cart-item img {
-            max-width: 100px;
+        .dish img, .drink img {
+            max-width: 150px;
             border-radius: 8px;
-            margin-right: 20px;
         }
-        .item-info {
+        .dish-info, .drink-info {
             flex-grow: 1;
+            margin-right: 20px;
+            margin-bottom: 15px;
         }
-        .item-info h3 {
+        .dish-info h3, .drink-info h3 {
             margin: 0;
             font-size: 1.2em;
         }
@@ -53,14 +55,17 @@
             color: #28a745;
             font-weight: bold;
         }
-        .total {
-            font-size: 1.5em;
-            font-weight: bold;
-            text-align: right;
-            margin-top: 20px;
-            color: #333;
+        .add-to-cart {
+            background-color: #ff6f61;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            font-size: 0.9em;
+            cursor: pointer;
+            border-radius: 8px;
+            margin-top: 10px;
         }
-        .confirm-button {
+        .cart-button {
             background-color: #ff6f61;
             color: #fff;
             border: none;
@@ -73,53 +78,35 @@
             margin-top: 30px;
             border-radius: 8px;
         }
-        @media (max-width: 768px) {
-            .cart-item {
-                flex-direction: column;
-                align-items: flex-start;
-            }
-            .cart-item img {
-                max-width: 100%;
-                margin-bottom: 15px;
-            }
-        }
     </style>
 </head>
 <body>
-    <script>
-        total=0;
-    </script>
     <div class="header">
-        <h1>Carrito de Compras - HungryHub</h1>
+        <h1 style="display: inline-block;">HungryHub</h1>
+        <img src="https://cdn-icons-png.flaticon.com/512/5787/5787016.png" alt="Logito pro" width=8% height=8%>
+
     </div>
     <div class="container">
-        <h2 class="section-title">Resumen del Pedido</h2>
+        <h2 style="text-align: center;">¡Bienvenido a HungryHub!</h2>
         
-        {% for pedido in pedidos%}
-        <div class="cart-item">
-            <img src={{pedido.imagen}} alt="Imagen del Plato">
-            <div class="item-info">
-                <h3>{{pedido.nombre}}</h3>
-                <p class="price">${{pedido.precio}}</p>
+        <h2 class="section-title">Platos Principales</h2>
+        {% for plato in platos %}
+            <div class="dish">
+                <div class="dish-info">
+                    <h3>{{ plato.nombre }}</h3>
+                    <p><b>Descripción:</b> {{plato.descripcion}}</p>
+                    <p> <b>Precio: </b> ${{ plato.precio }}</p>
+                </div>
+                <div>
+                    <img src={{ plato.imagen }} alt="Imagen del Plato">
+                    <form method="post">
+                    <button class="add-to-cart" type="submit" name="boton" value={{plato.nombre}}>Pedir</button>
+                    </form>
+                </div>
             </div>
-        </div>
-
         {% endfor %}
-
-        <!-- 
-<script>
-   {% for pedido in pedidos %}
-      total += parseInt("{{ pedido.precio }}");
-   {% endfor %}
-</script>
--->
-
-
-        <div class="total">
-            Total: <p>{{ total }}</p>
-        </div>
-
-        <button class="confirm-button">Confirmar Pedido</button>
+     
     </div>
 </body>
 </html>
+

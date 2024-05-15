@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 
 import os
 from pathlib import Path
+import pymongo
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -26,8 +27,10 @@ SECRET_KEY = 'django-insecure-ypv7+tn+3y#u5tsf_f$b#16%x)x3fu5b#e=62lkjrzk5jwb3tx
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
+CLIENT = pymongo.MongoClient ('mongodb://hungryhub84:fFgkg89qCuK1KJ3a@ac-t4pykdt-shard-00-00.pbi899i.mongodb.net:27017,ac-t4pykdt-shard-00-01.pbi899i.mongodb.net:27017,ac-t4pykdt-shard-00-02.pbi899i.mongodb.net:27017/?ssl=true&replicaSet=atlas-654uob-shard-0&authSource=admin&retryWrites=true&w=majority&appName=Cluster0')
+DB = CLIENT.HungryHub
 
 # Application definition
 
@@ -38,10 +41,11 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'myapp',
+    'mesas',
     'pedidos',
+    'platos',
     'platosPedidos',
-    'platos'
+    'restaurantes',
 ]
 
 MIDDLEWARE = [
