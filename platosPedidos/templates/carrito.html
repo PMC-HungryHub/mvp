@@ -95,6 +95,7 @@
     <div class="container">
         <h2 class="section-title">Resumen del Pedido</h2>
         
+        <h5>{{mensaje}}</h5>
         {% for pedido in pedidos%}
         <div class="cart-item">
             <img src={{pedido.imagen}} alt="Imagen del Plato">
@@ -116,11 +117,12 @@
 
 
         <div class="total">
-            Total: <p>{{ total }}</p>
+            Total: {{ total }}
         </div>
-
-        <button class="confirm-button">Confirmar Pedido</button>
-        <button type="submit" class="confirm-button" onClick="window.location.href='/platos'" style="text-align:center;">
+        <form method="POST">
+            <button type="submit" class="confirm-button">Confirmar Pedido</button>
+        </form>
+        <button class="confirm-button" onClick="window.location.href='/platos'" style="text-align:center;">
             Devolverse al pedido
         </button>
     </div>

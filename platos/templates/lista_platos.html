@@ -112,14 +112,14 @@
                 </div>
                 <div>
                     <img src={{ plato.imagen }} alt={{ plato.nombre }}>
-                    <form method="post">
-                    <button class="add-to-cart" type="submit" name="boton" value={{ plato.id2 }}>Pedir</button>
+                    <form method="POST">
+                    <button class="add-to-cart" type="submit" name="idPlato" value={{ plato.id2 }}>Pedir</button>
                     </form>
                 </div>
             </div>
         {% endfor %}
 
-        <button type="submit" class="confirm-button" onClick="window.location.href='/carrito'" style="text-align:center;">
+        <button class="confirm-button" onClick="window.location.href='/carrito'" style="text-align:center;">
             Ir al carrito
         </button>
     </div>

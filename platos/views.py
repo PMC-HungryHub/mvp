@@ -7,11 +7,15 @@ def lista_platos(request):
    platos = documento["platos"]
 
    if request.method=="POST":
-        pedidos = settings.DB["Pedidos"].find()
-        if "boton" in request.POST:
-            nombre= request.POST["boton"]
-            pedidos = settings.DB["Pedidos"]
-            pedidos.insert_one({"nombre": nombre})
+      idPlato = int(request.POST.get("idPlato"))
+      # Buscar el plato en la lista de platos
+      plato = None
+      for p in platos:
+         if p["id2"] == idPlato:
+            plato = p
+            break
+      if plato:
+         restaurantes.update_one({"nombre": "Restaurante de los Alpes"},{"$push": {"pedido": plato}})
 
    return render(request, 'lista_platos.html', {'platos': platos})
 
