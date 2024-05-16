@@ -78,6 +78,19 @@
             margin-top: 30px;
             border-radius: 8px;
         }
+        .confirm-button {
+            background-color: #ff6f61;
+            color: #fff;
+            border: none;
+            padding: 15px 30px;
+            font-size: 1em;
+            cursor: pointer;
+            display: block;
+            width: 100%;
+            text-align: center;
+            margin-top: 30px;
+            border-radius: 8px;
+        }
     </style>
 </head>
 <body>
@@ -94,18 +107,21 @@
             <div class="dish">
                 <div class="dish-info">
                     <h3>{{ plato.nombre }}</h3>
-                    <p><b>Descripción:</b> {{plato.descripcion}}</p>
-                    <p> <b>Precio: </b> ${{ plato.precio }}</p>
+                    <p><b>Descripción:</b> {{ plato.descripcion }}</p>
+                    <p> <b>Precio: </b>${{ plato.precio }}</p>
                 </div>
                 <div>
-                    <img src={{ plato.imagen }} alt="Imagen del Plato">
+                    <img src={{ plato.imagen }} alt={{ plato.nombre }}>
                     <form method="post">
-                    <button class="add-to-cart" type="submit" name="boton" value={{plato.nombre}}>Pedir</button>
+                    <button class="add-to-cart" type="submit" name="boton" value={{ plato.id2 }}>Pedir</button>
                     </form>
                 </div>
             </div>
         {% endfor %}
-     
+
+        <button type="submit" class="confirm-button" onClick="window.location.href='/carrito'" style="text-align:center;">
+            Ir al carrito
+        </button>
     </div>
 </body>
 </html>
